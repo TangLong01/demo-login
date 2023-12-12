@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
 import "../styles/login.scss";
 import { useNavigate } from "react-router-dom";
-import bg from "../images/bg-login.png";
 import logo from "../images/logo.png";
 import useStore from "../utils/store";
 
@@ -16,14 +15,14 @@ export const Login: React.FC = () => {
   const handleLogin = (values: { username: string; password: string }) => {
     if (values.username === values.password) {
       setUsername(values.username);
-      navigate("/home");
+      navigate("/");
     } else {
       setIsShowModalLoginFail(true);
     }
   };
 
   return (
-    <div className="container" style={{ backgroundImage: `url(${bg})` }}>
+    <div>
       <div className="form">
         <div className="divLogo">
           <img src={logo} className="logo" alt="Logo" />
@@ -48,7 +47,10 @@ export const Login: React.FC = () => {
               },
             ]}
           >
-            <Input placeholder="Nhập tài khoản" />
+            <Input
+              placeholder="Nhập tài khoản"
+              style={{ fontWeight: 500, height: "50px" }}
+            />
           </Form.Item>
           <Form.Item
             name="password"
@@ -60,10 +62,16 @@ export const Login: React.FC = () => {
               },
             ]}
           >
-            <Input.Password placeholder="Nhập mật khẩu" />
+            <Input.Password
+              placeholder="Nhập mật khẩu"
+              style={{ fontWeight: 500, height: "50px" }}
+            />
           </Form.Item>
           <Form.Item>
-            <Button htmlType="submit" style={{ fontWeight: 500 }}>
+            <Button
+              htmlType="submit"
+              style={{ fontWeight: 500, height: "50px", marginTop: "6px" }}
+            >
               Đăng nhập
             </Button>
           </Form.Item>
