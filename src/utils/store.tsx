@@ -5,9 +5,16 @@ interface StoreState {
   setUsername: (newUsername: string) => void;
 }
 
-const useStore = create<StoreState>((set) => ({
-  username: "",
-  setUsername: (newUsername) => set({ username: newUsername }),
-}));
+const useStore = create<StoreState>((set) => {
+  const storedUsername = localStorage.getItem("username") || "";
+
+  return {
+    username: storedUsername,
+    setUsername: (newUsername) => {
+      set({ username: newUsername });
+      localStorage.setItem("username", newUsername);
+    },
+  };
+});
 
 export default useStore;

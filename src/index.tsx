@@ -1,9 +1,7 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import "./styles/global.scss";
 import App from "./App";
 import reportWebVitals from "./utils/reportWebVitals";
-
 import { createRoot } from "react-dom/client";
 
 const element = document.getElementById("root");
