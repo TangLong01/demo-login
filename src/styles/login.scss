@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  width: 380px;
+  background-color: white;
+  padding: 2% 1.5%;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.divLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 75%;
+}
+
+.text {
+  font-weight: 600;
+}
+
+:where(.css-dev-only-do-not-override-p7e5j5).ant-btn-default {
+  background: green;
+  border-color: #d9d9d9;
+  color: white;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+  width: 100%;
+}
