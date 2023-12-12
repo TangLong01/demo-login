@@ -1,31 +1,32 @@
 import React, { useState } from "react";
-import useStore from "../utils/store";
 import { Button, Form, Input, Modal } from "antd";
 import "../styles/login.scss";
 import { useNavigate } from "react-router-dom";
+import bg from "../images/bg-login.png";
+import logo from "../images/logo.png";
+import useStore from "../utils/store";
 
-const bg = require("../images/bg-login.png");
-const logo = require("../images/logo.png");
-
-export const Login = () => {
+export const Login: React.FC = () => {
   const { username, setUsername } = useStore();
   const [isShowModalLoginFail, setIsShowModalLoginFail] = useState(false);
 
   const navigate = useNavigate();
   const [form] = Form.useForm();
 
-  const handleLogin = (values) => {
+  const handleLogin = (values: { username: string; password: string }) => {
     if (values.username === values.password) {
       setUsername(values.username);
       navigate("/home");
-    } else setIsShowModalLoginFail(true);
+    } else {
+      setIsShowModalLoginFail(true);
+    }
   };
 
   return (
     <div className="container" style={{ backgroundImage: `url(${bg})` }}>
       <div className="form">
         <div className="divLogo">
-          <img src={logo} className="logo" />
+          <img src={logo} className="logo" alt="Logo" />
         </div>
         <div className="text">
           Nhập thông tin của bạn để truy cập vào hệ thống của Chi nhánh
@@ -36,7 +37,6 @@ export const Login = () => {
           layout="vertical"
           autoComplete="off"
           onFinish={handleLogin}
-          // onFinishFailed={onFinishFailed}
         >
           <Form.Item
             name="username"
@@ -72,7 +72,7 @@ export const Login = () => {
 
       <Modal
         title="Sai mật khẩu"
-        open={isShowModalLoginFail}
+        visible={isShowModalLoginFail}
         onOk={() => setIsShowModalLoginFail(false)}
         cancelButtonProps={{ style: { display: "none" } }}
       ></Modal>

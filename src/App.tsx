@@ -1,8 +1,9 @@
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Login } from "./components/Login";
 import { Home } from "./components/Home";
+import { Login } from "./components/Login";
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Routes>
@@ -12,6 +13,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
