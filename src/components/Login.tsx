@@ -41,7 +41,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="login">
       <div className="form">
         <div className="divLogo">
           <img src={logo} className="logo" alt="Logo" />
@@ -68,7 +68,7 @@ const Login: React.FC = () => {
           >
             <Input
               placeholder="Nhập tài khoản"
-              style={{ fontWeight: 500, height: "50px" }}
+              style={{ fontWeight: 600, height: "50px" }}
             />
           </Form.Item>
           <Form.Item
@@ -83,7 +83,7 @@ const Login: React.FC = () => {
           >
             <Input.Password
               placeholder="Nhập mật khẩu"
-              style={{ fontWeight: 500, height: "50px" }}
+              style={{ height: "50px" }}
             />
           </Form.Item>
           <Form.Item>

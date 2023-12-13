@@ -35,7 +35,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="home">
       <div className="textWelcome">Xin chào {username}</div>
       <Button
         onClick={handleLogout}
