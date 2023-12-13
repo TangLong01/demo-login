@@ -1,23 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useStore from "../utils/store";
 import "../styles/home.scss";
-import { Button } from "antd";
+import { Button, Spin } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const withAuth = (WrappedComponent: React.FC) => {
   return () => {
     const { username, setUsername } = useStore();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       if (!localStorage.getItem("username") || username === "") {
         localStorage.removeItem("username");
         setUsername("");
+        setLoading(true);
         navigate("/login");
+      } else {
+        setLoading(false);
       }
     }, [username, navigate]);
 
-    return <WrappedComponent />;
+    return loading ? <Spin size="large" /> : <WrappedComponent />;
   };
 };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form, Input, Modal } from "antd";
+import { Button, Form, Input, Modal, Spin } from "antd";
 import "../styles/login.scss";
 import { useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
@@ -9,14 +9,18 @@ const notWithAuth = (WrappedComponent: React.FC) => {
   return () => {
     const { username } = useStore();
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       if (localStorage.getItem("username") && username !== "") {
+        setLoading(true);
         navigate("/");
+      } else {
+        setLoading(false);
       }
     }, [username, navigate]);
 
-    return <WrappedComponent />;
+    return loading ? <Spin size="large" /> : <WrappedComponent />;
   };
 };
 
