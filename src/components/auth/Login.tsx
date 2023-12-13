@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Modal, Spin } from "antd";
-import "./login.scss";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import bg from "../../images/bg-login.png";
 import logo from "../../images/logo.png";
 import useStore from "../../utils/store";
+import "./login.scss";
 
 const notWithAuth = (WrappedComponent: React.FC) => {
   return () => {
@@ -41,7 +42,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="login">
+    <div className="login" style={{ backgroundImage: `url(${bg})` }}>
       <div className="form">
         <div className="divLogo">
           <img src={logo} className="logo" alt="Logo" />

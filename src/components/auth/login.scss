@@ -1,8 +1,14 @@
 .login {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+
   .form {
     width: 380px;
     background-color: white;
-    padding: 10% 6%;
+    padding: 3% 2%;
     border-radius: 16px;
     display: flex;
     flex-direction: column;

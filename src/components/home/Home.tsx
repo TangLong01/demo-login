@@ -26,23 +26,9 @@ const withAuth = (WrappedComponent: React.FC) => {
 };
 
 const Home: React.FC = () => {
-  const { username } = useStore();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem("username");
-    navigate("/login");
-  };
-
   return (
     <div className="home">
-      <div className="textWelcome">Xin chào {username}</div>
-      <Button
-        onClick={handleLogout}
-        style={{ fontWeight: 500, width: "150px" }}
-      >
-        Đăng xuất
-      </Button>
+      <div>home</div>
     </div>
   );
 };
