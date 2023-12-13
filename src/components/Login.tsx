@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Modal } from "antd";
 import "../styles/login.scss";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +20,12 @@ export const Login: React.FC = () => {
       setIsShowModalLoginFail(true);
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("username") && username !== "") {
+      navigate("/");
+    }
+  }, [username]);
 
   return (
     <div>
