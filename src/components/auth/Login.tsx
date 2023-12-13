@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Input, Modal, Spin } from "antd";
-import "../styles/login.scss";
+import "./login.scss";
 import { useNavigate } from "react-router-dom";
-import logo from "../images/logo.png";
-import useStore from "../utils/store";
+import logo from "../../images/logo.png";
+import useStore from "../../utils/store";
 
 const notWithAuth = (WrappedComponent: React.FC) => {
   return () => {

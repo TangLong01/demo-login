@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { HomeWithAuth } from "./components/Home";
-import { LoginNotWithAuth } from "./components/Login";
+import { LoginNotWithAuth } from "./components/auth/Login";
+import { HomeWithAuth } from "./components/home";
 
 const App: React.FC = () => {
   return (
