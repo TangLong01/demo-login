@@ -5,8 +5,23 @@ import { useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
 import useStore from "../utils/store";
 
-export const Login: React.FC = () => {
-  const { username, setUsername } = useStore();
+const notWithAuth = (WrappedComponent: React.FC) => {
+  return () => {
+    const { username } = useStore();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      if (localStorage.getItem("username") && username !== "") {
+        navigate("/");
+      }
+    }, [username, navigate]);
+
+    return <WrappedComponent />;
+  };
+};
+
+const Login: React.FC = () => {
+  const { setUsername } = useStore();
   const [isShowModalLoginFail, setIsShowModalLoginFail] = useState(false);
 
   const navigate = useNavigate();
@@ -20,12 +35,6 @@ export const Login: React.FC = () => {
       setIsShowModalLoginFail(true);
     }
   };
-
-  useEffect(() => {
-    if (localStorage.getItem("username") && username !== "") {
-      navigate("/");
-    }
-  }, [username]);
 
   return (
     <div>
@@ -93,3 +102,5 @@ export const Login: React.FC = () => {
     </div>
   );
 };
+
+export const LoginNotWithAuth = notWithAuth(Login);
