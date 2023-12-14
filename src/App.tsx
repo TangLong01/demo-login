@@ -14,12 +14,12 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomeWithAuth />} />
-          <Route path="/todo-list/list" element={<TodoList />} />
-          <Route
-            path="/todo-list/unfinished-list"
-            element={<UnfinishedList />}
-          />
-          <Route path="/todo-list/finished-list" element={<FinishedList />} />
+        </Route>
+
+        <Route path="/todo-list" element={<MainLayout />}>
+          <Route path="list" element={<TodoList />} />
+          <Route path="unfinished-list" element={<UnfinishedList />} />
+          <Route path="finished-list" element={<FinishedList />} />
         </Route>
 
         <Route path="/login" element={<AuthLayout />}>
