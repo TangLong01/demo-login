@@ -1,12 +1,11 @@
-import React, { ReactNode } from "react";
-import "./mainlayout.scss";
 import ProLayout, { PageContainer } from "@ant-design/pro-layout";
+import { Dropdown } from "antd";
+import logo from "images/logo.png";
+import userImg from "images/user.png";
+import menuDataRender from "page/Menu";
+import React, { ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Menu from "../page/Menu";
-import logo from "../images/logo.png";
-import { Dropdown, Space } from "antd";
-import useStore from "../utils/store";
-import userImg from "../images/user.png";
+import useStore from "utils/store";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -18,16 +17,9 @@ interface MenuItem {
   danger?: boolean;
 }
 
-const LogoTitle: React.FC = () => (
-  <img
-    src={logo}
-    className="logo"
-    alt="Logo"
-    style={{ width: "90%", height: "100%", padding: 0 }}
-  />
-);
+const LogoTitle: React.FC = () => <img src={logo} alt="Logo" />;
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayoutHome: React.FC<MainLayoutProps> = ({ children }) => {
   const { username } = useStore();
   const navigate = useNavigate();
 
@@ -49,11 +41,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   ];
 
   return (
-    <div className="mainlayout">
+    <div>
       <ProLayout
         title=""
         logo={<LogoTitle />}
-        menuDataRender={Menu}
+        menuDataRender={menuDataRender}
         menuItemRender={(item, dom) => (
           <Link to={item.path ?? "/"}>
             {item.routes ? dom : <span>{dom}</span>}
@@ -73,16 +65,22 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               items,
             }}
             placement="bottomRight"
-            className="user"
+            className="absolute top-4 right-10 flex justify-center items-center gap-x-2"
           >
-            <div>
-              <img src={userImg} alt="user" className="userAva" />
+            <div className="cursor-pointer">
+              <img
+                src={userImg}
+                alt="user"
+                className="w-11 aspect-square bg-gray rounded-full p-1.5"
+              />
               <div>
-                <div className="username">{username}</div>
-                <div className="role" style={{ color: "mediumseagreen" }}>
+                <div className="font-medium uppercase text-[14px]">
+                  {username}
+                </div>
+                <div className="text-[12px] text-greenDefault">
                   Phòng Kinh Doanh
                 </div>
-                <div className="role" style={{ color: "gray" }}>
+                <div className="text-[12px] text-gray">
                   Trưởng Phòng Kinh Doanh
                 </div>
               </div>
@@ -95,4 +93,4 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   );
 };
 
-export default MainLayout;
+export default MainLayoutHome;

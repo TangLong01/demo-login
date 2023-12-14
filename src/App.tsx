@@ -1,11 +1,12 @@
+import { LoginNotWithAuth } from "components/auth/Login";
+import FinishedList from "components/todo-list/FinishedList";
+import { HomeWithAuth } from "components/home/Home";
+import TodoList from "components/todo-list/TodoList";
+import UnfinishedList from "components/todo-list/UnfinishedList";
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { LoginNotWithAuth } from "./components/auth/Login";
-import { HomeWithAuth } from "./components/home/Home";
-import MainLayout from "./layouts/MainLayout";
-import TodoList from "./components/home/TodoList";
-import UnfinishedList from "./components/home/UnfinishedList";
-import FinishedList from "./components/home/FinishedList";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import MainLayoutHome from "layouts/MainLayoutHome";
+import MainLayoutAuth from "layouts/MainLayoutAuth";
 
 const App: React.FC = () => {
   return (
@@ -14,28 +15,39 @@ const App: React.FC = () => {
         <Route
           path="/*"
           element={
-            <MainLayout>
+            <MainLayoutHome>
               <Routes>
                 <Route index element={<HomeWithAuth />} />
               </Routes>
-            </MainLayout>
+            </MainLayoutHome>
           }
         />
 
         <Route
           path="/todo-list/*"
           element={
-            <MainLayout>
+            <MainLayoutHome>
               <Routes>
                 <Route path="/list" element={<TodoList />} />
                 <Route path="/unfinished-list" element={<UnfinishedList />} />
                 <Route path="/finished-list" element={<FinishedList />} />
               </Routes>
-            </MainLayout>
+            </MainLayoutHome>
           }
         />
 
-        <Route path="/login" element={<LoginNotWithAuth />} />
+        <Route
+          path="/login/*"
+          element={
+            <MainLayoutAuth>
+              <Routes>
+                <Route index element={<LoginNotWithAuth />} />
+              </Routes>
+            </MainLayoutAuth>
+          }
+        />
+
+        {/* <Route path="/login" element={<LoginNotWithAuth />} /> */}
       </Routes>
     </Router>
   );
