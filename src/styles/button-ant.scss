@@ -1,8 +1,17 @@
 :where(.css-dev-only-do-not-override-p7e5j5).ant-btn-default {
-  background: mediumseagreen;
-  border-color: #d9d9d9;
-  color: white;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+  background: mediumseagreen !important;
+  border-color: #d9d9d9 !important;
+  color: white !important;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02) !important;
+  font-weight: 500 !important;
+}
+
+.cancelButton {
+  background: gray !important;
+  border-color: #d9d9d9 !important;
+  color: white !important;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02) !important;
+  font-weight: 500 !important;
 }
 
 .btnLogin {
