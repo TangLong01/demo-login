@@ -15,7 +15,7 @@ interface MenuItem {
 
 const LogoTitle: React.FC = () => <img src={logo} alt="Logo" />;
 
-const MainLayoutHome: React.FC = () => {
+const MainLayout: React.FC = () => {
   const { username } = useStore();
   const navigate = useNavigate();
 
@@ -89,4 +89,4 @@ const MainLayoutHome: React.FC = () => {
   );
 };
 
-export default MainLayoutHome;
+export default MainLayout;

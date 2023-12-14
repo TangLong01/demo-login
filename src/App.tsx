@@ -5,14 +5,14 @@ import TodoList from "components/todo-list/TodoList";
 import UnfinishedList from "components/todo-list/UnfinishedList";
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import MainLayoutHome from "layouts/MainLayoutHome";
-import MainLayoutAuth from "layouts/MainLayoutAuth";
+import MainLayout from "layouts/MainLayout";
+import AuthLayout from "layouts/AuthLayout";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainLayoutHome />}>
+        <Route path="/" element={<MainLayout />}>
           <Route index element={<HomeWithAuth />} />
           <Route path="/todo-list/list" element={<TodoList />} />
           <Route
@@ -22,7 +22,7 @@ const App: React.FC = () => {
           <Route path="/todo-list/finished-list" element={<FinishedList />} />
         </Route>
 
-        <Route path="/login" element={<MainLayoutAuth />}>
+        <Route path="/login" element={<AuthLayout />}>
           <Route index element={<LoginNotWithAuth />} />
         </Route>
       </Routes>
