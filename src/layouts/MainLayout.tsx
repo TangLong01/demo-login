@@ -5,7 +5,7 @@ import userImg from "images/user.png";
 import menuDataRender from "page/Menu";
 import React from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import useStore from "utils/store";
+import useUsername from "utils/username";
 
 interface MenuItem {
   key: number;
@@ -16,7 +16,7 @@ interface MenuItem {
 const LogoTitle: React.FC = () => <img src={logo} alt="Logo" />;
 
 const MainLayout: React.FC = () => {
-  const { username } = useStore();
+  const { username } = useUsername();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -55,7 +55,7 @@ const MainLayout: React.FC = () => {
           // ...route,
         ]}
       >
-        <PageContainer>
+        <PageContainer className="bg-homeBg min-h-screen">
           <Dropdown
             menu={{
               items,
@@ -82,7 +82,9 @@ const MainLayout: React.FC = () => {
               </div>
             </div>
           </Dropdown>
-          <Outlet />
+          <div className="mt-5">
+            <Outlet />
+          </div>
         </PageContainer>
       </ProLayout>
     </div>

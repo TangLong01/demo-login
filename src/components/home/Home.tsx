@@ -1,11 +1,11 @@
 import { Spin } from "antd";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useStore from "utils/store";
+import useUsername from "utils/username";
 
 const withAuth = (WrappedComponent: React.FC) => {
   return () => {
-    const { username, setUsername } = useStore();
+    const { username, setUsername } = useUsername();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
 

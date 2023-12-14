@@ -1,11 +1,11 @@
 import create from "zustand";
 
-interface StoreState {
+interface UsernameState {
   username: string;
   setUsername: (newUsername: string) => void;
 }
 
-const useStore = create<StoreState>((set) => {
+const useUsername = create<UsernameState>((set) => {
   const storedUsername = localStorage.getItem("username") || "";
 
   return {
@@ -17,4 +17,4 @@ const useStore = create<StoreState>((set) => {
   };
 });
 
-export default useStore;
+export default useUsername;

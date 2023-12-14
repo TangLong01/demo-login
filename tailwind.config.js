@@ -7,6 +7,8 @@ module.exports = {
       greenDefault: "mediumseagreen",
       gray: "gray",
       white: "white",
+      black: "black",
+      homeBg: "#F0FFF0",
     },
     backgroundImage: {
       "bg-login": "url('images/bg-login.png')",
