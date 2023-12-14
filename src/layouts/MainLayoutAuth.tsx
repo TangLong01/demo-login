@@ -1,14 +1,11 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { Outlet } from "react-router-dom";
 
-interface MainLayoutProps {
-  children: ReactNode;
-}
-
-const MainLayoutAuth: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayoutAuth: React.FC = () => {
   return (
     <div className="flex justify-center items-center gap-y-5 h-[100vh] bg-bg-login">
       <div className="bg-white w-[400px] px-6 py-8 rounded-xl flex flex-col gap-y-6">
-        {children}
+        <Outlet />
       </div>
     </div>
   );

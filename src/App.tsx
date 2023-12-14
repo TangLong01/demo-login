@@ -12,42 +12,19 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/*"
-          element={
-            <MainLayoutHome>
-              <Routes>
-                <Route index element={<HomeWithAuth />} />
-              </Routes>
-            </MainLayoutHome>
-          }
-        />
+        <Route path="/" element={<MainLayoutHome />}>
+          <Route index element={<HomeWithAuth />} />
+          <Route path="/todo-list/list" element={<TodoList />} />
+          <Route
+            path="/todo-list/unfinished-list"
+            element={<UnfinishedList />}
+          />
+          <Route path="/todo-list/finished-list" element={<FinishedList />} />
+        </Route>
 
-        <Route
-          path="/todo-list/*"
-          element={
-            <MainLayoutHome>
-              <Routes>
-                <Route path="/list" element={<TodoList />} />
-                <Route path="/unfinished-list" element={<UnfinishedList />} />
-                <Route path="/finished-list" element={<FinishedList />} />
-              </Routes>
-            </MainLayoutHome>
-          }
-        />
-
-        <Route
-          path="/login/*"
-          element={
-            <MainLayoutAuth>
-              <Routes>
-                <Route index element={<LoginNotWithAuth />} />
-              </Routes>
-            </MainLayoutAuth>
-          }
-        />
-
-        {/* <Route path="/login" element={<LoginNotWithAuth />} /> */}
+        <Route path="/login" element={<MainLayoutAuth />}>
+          <Route index element={<LoginNotWithAuth />} />
+        </Route>
       </Routes>
     </Router>
   );

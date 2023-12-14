@@ -3,13 +3,9 @@ import { Dropdown } from "antd";
 import logo from "images/logo.png";
 import userImg from "images/user.png";
 import menuDataRender from "page/Menu";
-import React, { ReactNode } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import useStore from "utils/store";
-
-interface MainLayoutProps {
-  children: ReactNode;
-}
 
 interface MenuItem {
   key: number;
@@ -19,7 +15,7 @@ interface MenuItem {
 
 const LogoTitle: React.FC = () => <img src={logo} alt="Logo" />;
 
-const MainLayoutHome: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayoutHome: React.FC = () => {
   const { username } = useStore();
   const navigate = useNavigate();
 
@@ -86,7 +82,7 @@ const MainLayoutHome: React.FC<MainLayoutProps> = ({ children }) => {
               </div>
             </div>
           </Dropdown>
-          {children}
+          <Outlet />
         </PageContainer>
       </ProLayout>
     </div>
