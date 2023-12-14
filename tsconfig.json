@@ -14,6 +14,15 @@
     "isolatedModules": true,
     "jsx": "react",
 
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@config/*": ["app/_config/*"],
+      "@environment/*": ["environments/*"],
+      "@shared/*": ["app/_shared/*"],
+      "@helpers/*": ["helpers/*"]
+    },
+
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noImplicitThis": true,

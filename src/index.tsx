@@ -3,16 +3,13 @@ import "./styles/global.scss";
 import App from "./App";
 import reportWebVitals from "./utils/reportWebVitals";
 import { createRoot } from "react-dom/client";
-import MainLayout from "./layouts/MainLayout";
 
 const element = document.getElementById("root");
 const root = createRoot(element!);
 
 root.render(
   <React.StrictMode>
-    <MainLayout>
-      <App />
-    </MainLayout>
+    <App />
   </React.StrictMode>
 );
 

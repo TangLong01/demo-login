@@ -1,8 +1,7 @@
+import { Spin } from "antd";
 import React, { useEffect, useState } from "react";
-import "./home.scss";
-import { Button, Spin } from "antd";
 import { useNavigate } from "react-router-dom";
-import useStore from "../../utils/store";
+import useStore from "utils/store";
 
 const withAuth = (WrappedComponent: React.FC) => {
   return () => {
@@ -26,23 +25,9 @@ const withAuth = (WrappedComponent: React.FC) => {
 };
 
 const Home: React.FC = () => {
-  const { username } = useStore();
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    localStorage.removeItem("username");
-    navigate("/login");
-  };
-
   return (
-    <div className="home">
-      <div className="textWelcome">Xin chào {username}</div>
-      <Button
-        onClick={handleLogout}
-        style={{ fontWeight: 500, width: "150px" }}
-      >
-        Đăng xuất
-      </Button>
+    <div>
+      <div>home</div>
     </div>
   );
 };
