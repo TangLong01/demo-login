@@ -6,8 +6,16 @@
   font-weight: 500 !important;
 }
 
-.cancelButton {
+.grayButton {
   background: gray !important;
+  border-color: #d9d9d9 !important;
+  color: white !important;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02) !important;
+  font-weight: 500 !important;
+}
+
+.redButton {
+  background: #ef4040 !important;
   border-color: #d9d9d9 !important;
   color: white !important;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02) !important;
