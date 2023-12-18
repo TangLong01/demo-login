@@ -1,12 +1,12 @@
 import { Button, Form, Input, Modal, Spin } from "antd";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import logo from "../../images/logo.png";
-import useStore from "../../utils/store";
+import logo from "images/logo.png";
+import useUsername from "utils/username";
 
 const notWithAuth = (WrappedComponent: React.FC) => {
   return () => {
-    const { username } = useStore();
+    const { username } = useUsername();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
 
@@ -24,7 +24,7 @@ const notWithAuth = (WrappedComponent: React.FC) => {
 };
 
 const Login: React.FC = () => {
-  const { setUsername } = useStore();
+  const { setUsername } = useUsername();
   const [isShowModalLoginFail, setIsShowModalLoginFail] = useState(false);
 
   const navigate = useNavigate();

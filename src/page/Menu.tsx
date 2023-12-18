@@ -9,20 +9,20 @@ const routerConfig = {
     {
       path: "/todo-list",
       name: "Danh sách công việc",
-      routes: [
-        {
-          path: "/todo-list/list",
-          name: "Tất cả công việc",
-        },
-        {
-          path: "/todo-list/unfinished-list",
-          name: "Công việc chưa hoàn thành",
-        },
-        {
-          path: "/todo-list/finished-list",
-          name: "Công việc đã hoàn thành",
-        },
-      ],
+      // routes: [
+      //   {
+      //     path: "/todo-list/list",
+      //     name: "Tất cả công việc",
+      //   },
+      //   {
+      //     path: "/todo-list/unfinished-list",
+      //     name: "Công việc chưa hoàn thành",
+      //   },
+      //   {
+      //     path: "/todo-list/finished-list",
+      //     name: "Công việc đã hoàn thành",
+      //   },
+      // ],
     },
   ],
   location: { pathname: "/" },
